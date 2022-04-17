@@ -82,10 +82,10 @@ class SnakeGameClass:
             # Check for Collision
             pts = np.array(self.points[:-2], np.int32)
             pts = pts.reshape((-1, 1, 2))
-            cv2.polylines(imgMain, [pts], False, (0, 255, 0), 3)
+            cv2.polylines(imgMain, [pts], False, (0, 200, 0), 3)
             minDist = cv2.pointPolygonTest(pts, (cx, cy), True)
 
-            if -0.5 <= minDist <= 0.5:
+            if -0.2 <= minDist <= 0.1:  # Min distance to detect collision
                 print("HIT")
                 self.gameOver = True
                 self.points = []  # all points in the snake
